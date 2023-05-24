@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<table class="eduList">
+    <tr>
+        <th>학원명</th>
+        <th>작성자</th>
+        <th>평점</th>
+        <th>작성일</th>
+        <th>조회수</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for eduItem in eduList %}
+        <tr>
+            <td><a href="/edu/deatail/{{eduItem.edu_seq}}"></a>{{eduItem.edu_name}}</td>
+            <td>{{mem_id}}</td>
+            <td>{{eduItem.edu_score}}</td>
+            <td>{{eduItem.edu_wdate}}</td>
+            <td>{{eduItem.edu_hit}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+{% include "./paging.html" %}
+
+<div class = "container mt-5" style = "text-align: right">    
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary bg-success btn-outline-success text-bg-dark opacity-50 " id="btnWrite">글쓰기</button>
+        
+    </div>
+</div>
+
+
+<script>
+
+function goPage(pg)
+{
+location.href="/board/list2/"+pg;
+}
+$(document).ready( () => {
+$("#btnWrite").click(() => {
+// 화살표 함수는 this 사용 못함
+$("#myform").prop("action", "/board/write");
+$("#myform").prop("method", "get");
+$("#myform").submit();
+});
+})
+</script>
+
+{% endblock %}

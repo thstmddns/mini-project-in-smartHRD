@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+        <table class="eduDetail">
+            <tbody>
+                <tr>
+                    <th>{{eduItem.edu_name}}</th>
+                </tr>
+                <tr>
+                  <th>작성자</th>
+                  <td>{{eduItem.writer}}</td>
+                  <th>작성일</th>
+                  <td>{{eduItem.edu_wdate}}</td>
+                  <th>조회수</th>
+                  <td>{{eduItem.edu_hit}}</td>
+                  <th>과목 이름</th>
+                  <td>{{eduItem.edu_item_title}}</td>
+                </tr>
+                <tr>
+                  
+                  <td colspan="5">{{eduItem.edu_item_content|linebreaks}}</td>
+                  <td colspan="5">{{eduItem.edu_item_pic|linebreaks}}</td>
+                  <th>가격</th>
+                  <td colspan="5">{{eduItem.|edu_item_price}}</td>
+                  
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    
+    
+    <table>
+        {% for review in edu_review %}
+            <th>작성자</th>
+            <td>{{mem_id}}</td>
+            <th>작성일</th>
+            <td>{{review.edu_review_wdate}}</td>
+            <th>평점</th>
+            <!-- <td>별점 이미지?</td> -->
+            <td colspan="5">{{review.edu_review_content}}</td>
+        {% endfor %}
+    </table>
+            <!-- 리뷰 페이징: 자바스크립트로 다음 페이지가 보이게?(class name에 붙여서) -->
+    
+    <div class="container p-5 my-5 border">
+        <input type="text" class="edu_review_title" placeholder="한줄평">
+        <textarea class="form-control" rows="5" id="edu_review_content" name="review"></textarea>
+        <input type="submit" class="btnReview" value="리뷰 등록">
+    
+
+    </div>
+    
+    <div class = "container mt-5" style = "text-align: right">    
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary bg-success btn-outline-success text-bg-dark opacity-50 " id="btnModify">수정</button>
+            <button type="button" class="btn btn-primary bg-success btn-outline-success text-bg-dark opacity-50 " id="btnDelete">삭제</button>
+            <button type="button" class="btn btn-primary bg-success btn-outline-success text-bg-dark opacity-50 " id="btnList">목록</button>
+            
+        </div>
+    </div>
+
+<script>
+    
+  function goReview(pg)
+  {
+    
+    location.href="/edu/index/"+pg;
+
+
+  }
+$(document).ready( () => {
+  $("#btnReview").click(() => {
+    // 화살표 함수는 this 사용 못함
+    // $("#myform").prop("action", "/edu/write");
+    $("#myform").prop("method", "post");
+    $("#myform").submit();
+  });
+})
+</script>
+
+{% endblock %}

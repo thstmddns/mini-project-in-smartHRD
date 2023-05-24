@@ -37,8 +37,16 @@
             <td>{{mem_id}}</td>
             <th>작성일</th>
             <td>{{review.edu_review_wdate}}</td>
-            <th>평점</th>
-            <!-- <td>별점 이미지?</td> -->
+            <th>별점</th>
+            <td>
+                <select name="score">
+                    <option value="1">1점</option>
+                    <option value="2">2점</option>
+                    <option value="3">3점</option>
+                    <option value="4">4점</option>
+                    <option value="5">5점</option>
+                </select>
+            </td>
             <td colspan="5">{{review.edu_review_content}}</td>
         {% endfor %}
     </table>

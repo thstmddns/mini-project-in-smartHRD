@@ -3,6 +3,14 @@
 
 
         <table class="eduDetail">
+          <div class = "container mt-5" style = "text-align: right">    
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary bg-success btn-outline-success text-bg-dark opacity-50 " id="btnModify">수정</button>
+                <button type="button" class="btn btn-primary bg-success btn-outline-success text-bg-dark opacity-50 " id="btnDelete">삭제</button>
+                <button type="button" class="btn btn-primary bg-success btn-outline-success text-bg-dark opacity-50 " id="btnList">목록</button>
+                
+            </div>
+        </div>
             <tbody>
                 <tr>
                     <th>{{eduItem.edu_name}}</th>
@@ -37,7 +45,15 @@
             <td>{{mem_id}}</td>
             <th>작성일</th>
             <td>{{review.edu_review_wdate}}</td>
-            <th>별점</th>
+            <td colspan="5">{{review.edu_review_content}}</td>
+        {% endfor %}
+    </table>
+            <!-- 리뷰 페이징: 자바스크립트로 다음 페이지가 보이게?(class name에 붙여서) -->
+    
+    <div class="container p-5 my-5 border">
+        
+        <input type="text" class="edu_review_title" placeholder="한줄평">
+        <th>별점</th>
             <td>
                 <select name="score">
                     <option value="1">1점</option>
@@ -46,28 +62,13 @@
                     <option value="4">4점</option>
                     <option value="5">5점</option>
                 </select>
-            </td>
-            <td colspan="5">{{review.edu_review_content}}</td>
-        {% endfor %}
-    </table>
-            <!-- 리뷰 페이징: 자바스크립트로 다음 페이지가 보이게?(class name에 붙여서) -->
-    
-    <div class="container p-5 my-5 border">
-        <input type="text" class="edu_review_title" placeholder="한줄평">
-        <textarea class="form-control" rows="5" id="edu_review_content" name="review"></textarea>
+            </td><textarea class="form-control" rows="5" id="edu_review_content" name="review"></textarea>
         <input type="submit" class="btnReview" value="리뷰 등록">
     
 
     </div>
     
-    <div class = "container mt-5" style = "text-align: right">    
-        <div class="btn-group">
-            <button type="button" class="btn btn-primary bg-success btn-outline-success text-bg-dark opacity-50 " id="btnModify">수정</button>
-            <button type="button" class="btn btn-primary bg-success btn-outline-success text-bg-dark opacity-50 " id="btnDelete">삭제</button>
-            <button type="button" class="btn btn-primary bg-success btn-outline-success text-bg-dark opacity-50 " id="btnList">목록</button>
-            
-        </div>
-    </div>
+   
 
 <script>
     

@@ -10,7 +10,7 @@
 
         {% for pg in commonPage.page_range %}
             {% if pg == commonPage.curPage %}
-                <li class="page-item active" id="paging"><a class="page-link text-dark" href=javascript:goPage({{pg}}) style="border-color: gray; background-color: rgb(166, 167, 165)" ;>{{pg|add:1}}</a></li>
+                <li class="page-item active" id="paging"><a class="page-link text-dark" href=javascript:goPage({{pg}}) style="border-color: gray; background-color: rgb(146, 147, 144)" ;>{{pg|add:1}}</a></li>
             {% else %}
                 <li class="page-item"><a class="page-link text-dark" href="javascript:goPage({{pg}})">{{pg|add:1}}</a></li>
             

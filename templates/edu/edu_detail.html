@@ -1,30 +1,30 @@
 {% extends 'base.html' %}
-{% block content %}
+{% block contents %}  
 
 
         <table class="eDetail">
           
-        </div>
+        <div>
             <tbody>
                 <tr>
-                    <th>{{.edu_item_title}}</th>
+                    <h1 style="text-align: center; margin-top: 50px;">{{eduInfo.edu_name}}</h1>
                 </tr>
                 <tr>
                   <th>작성자</th>
-                  <td>{{mem_id}}</td>
+                  <td>{{eduReList.mem_id}}</td>
                   <th>작성일</th>
-                  <td>{{.edu_item_wdate}}</td>
+                  <td>{{eduInfo.edu_item_wdate}}</td>
                   <th>조회수</th>
-                  <td>{{eduItem.edu_hit}}</td></br>
+                  <td>{{eduInfo.edu_hit}}</td></br>
                   <th>위치</th>
-                  <td>{{eduItem.edu_locate}}</td>
+                  <td>{{eduInfo.edu_locate}}</td>
                   <th>가격</th>
-                  <td colspan="5">{{.edu_item_price}}</td>
+                  <td colspan="5">{{eduList.edu_item_price}}</td>
                 </tr>
                 <tr>
                   
-                  <td colspan="5">{{eduItem.edu_item_content|linebreaks}}</td>
-                  <td colspan="5">{{eduItem.edu_item_pic|linebreaks}}</td>
+                  <td colspan="5">{{eduList.edu_item_content|linebreaks}}</td>
+                  <td colspan="5">{{eduList.edu_item_pic|linebreaks}}</td>
                   <!-- 이미지 데이터나 소개 -->
                   
                 </tr>
@@ -37,13 +37,19 @@
     
     
     <table>
-        {% for review in eduReviewList %}
+          {% for review in eduReList %}
+            <tr>
             <th>작성자</th>
-            <td>{{mem_id}}</td>
+            <td>{{review.mem_id}}</td>
+            </tr>
+            <tr>
             <th>작성일</th>
             <td>{{review.edu_review_wdate}}</td>
+            </tr>
+            <tr>
             <td colspan="5">{{review.edu_review_content}}</td>
-        {% endfor %}
+            </tr>
+          {% endfor %}
     </table>
             <!-- 리뷰 페이징: 자바스크립트로 다음 페이지가 보이게?(class name에 붙여서) -->
     
@@ -66,12 +72,7 @@
     </div>
     
     <div class = "container mt-5" style = "text-align: right">    
-      <div class="btn-group">
-        {{% if request.user == mem_id %}}
-          <button type="button" class="btn btn-primary bg-success btn-outline-success text-bg-dark opacity-50" id="btnModify">수정</button>
-          <a href="#" class="btn btn-primary bg-success btn-outline-success text-bg-dark opacity-50" data-uri="{% url 'edu:delete' etc_item_seq %}">삭제</a>
-        {{% endif %}}
-          <button type="button" class="btn btn-primary bg-success btn-outline-success text-bg-dark opacity-50 " id="btnList">목록</button>
+          <button type="button" class="btn btn-primary bg-secondary btn-outline-dark text-bg-dark" id="btnList">목록</button>
       </div>
           
 

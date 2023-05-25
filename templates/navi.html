@@ -20,9 +20,13 @@
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-sm-2" type="search" placeholder="Search">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+        <input class="form-control me-sm-2 kw" type="search" placeholder="찾기" value="{{ kw|default_if_none:''}}"
+        name="search">
       </form>
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">✓</button>
+        <button type="button" class="btn btn-outline-secondary" style="margin-right: 10px; margin-left: 10px; width: 100px;">들어가기</button>
+        <button type="button" class="btn btn-outline-secondary">가입하기</button>
+      
     </div>
   </div>
 </nav>

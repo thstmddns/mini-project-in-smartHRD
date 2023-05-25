@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+        <table class="eduDetail">
+          
+        </div>
+            <tbody>
+                <tr>
+                    <th>{{.etc_item_title}}</th>
+                </tr>
+                <tr>
+                  <th>작성자</th>
+                  <td>{{mem_id}}</td>
+                  <th>작성일</th>
+                  <td>{{etcItem.etc_wdate}}</td>
+                  <th>조회수</th>
+                  <td>{{etcItem.etc_hit}}</td>
+                  <th>위치</th>
+                  <td>{{eduItem.edu_locate}}</td>
+                  <th>가격</th>
+                  <td colspan="5">{{.edu_item_price}}</td>
+                </tr>
+                <tr>
+                  
+                  <td colspan="5">{{.etc_item_content|linebreaks}}</td>
+                  <td colspan="5">{{.etc_item_pic|linebreaks}}</td>
+                  
+                </tr>
+               
+            </tbody>
+
+          
+        </table>
+    </div>
+    
+    
+    <table>
+        {% for review in etcReviewList %}
+            <th>작성자</th>
+            <td>{{mem_id}}</td>
+            <th>작성일</th>
+            <td>{{review.etc_review_wdate}}</td>
+            <td colspan="5">{{review.etc_review_content}}</td>
+        {% endfor %}
+    </table>
+            <!-- 리뷰 페이징: 자바스크립트로 다음 페이지가 보이게?(class name에 붙여서) -->
+    
+    <div class="container p-5 my-5 border">
+        
+        <input type="text" class="etc_review_title" placeholder="한줄평">
+        <th>별점</th>
+            <td>
+                <select name="score">
+                    <option value="1">1점</option>
+                    <option value="2">2점</option>
+                    <option value="3">3점</option>
+                    <option value="4">4점</option>
+                    <option value="5">5점</option>
+                </select></br>
+            </td><textarea class="form-control" rows="5" id="etc_review_content" name="review"></textarea>
+        <input type="submit" class="btnReview" value="리뷰 등록">
+    
+
+    </div>
+    
+    <div class = "container mt-5" style = "text-align: right">    
+      <div class="btn-group">
+        {{% if request.user == mem_id %}}
+          <button type="button" class="btn btn-primary bg-success btn-outline-success text-bg-dark opacity-50 " id="btnModify">수정</button>
+          <a href="#" class="btn btn-primary bg-success btn-outline-success text-bg-dark opacity-50" data-uri="{% url 'edu:delete' etc_item_seq %}">삭제</a>
+          {{% endif %}}
+          <button type="button" class="btn btn-primary bg-success btn-outline-success text-bg-dark opacity-50 " id="btnList">목록</button>
+          
+      </div>
+   
+
+<script>
+    
+  function goReview(pg)
+  {
+    
+    location.href="/etc/index/"+pg;
+
+
+  }
+$(document).ready( () => {
+  $("#btnReview").click(() => {
+    
+    // $("#myform").etcp("action", "/edu/write");
+    $("#myform").prop("method", "post");
+    $("#myform").submit();
+  });
+})
+</script>
+
+{% endblock %}

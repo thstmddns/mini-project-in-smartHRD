@@ -22,7 +22,7 @@ app_name = 'etc1'
 urlpatterns = [
     path("index/<int:pg>", views.index),
     # path("detail/<int:etc_seq>", views.detail),
-    # path("write", views.write),
+    path("write", views.write),
     # path("save", views.save),
     # path("main",views.main),
     # path('etc/delete/<int:etc_seq>', views.delete),

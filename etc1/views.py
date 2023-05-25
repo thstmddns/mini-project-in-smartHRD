@@ -92,8 +92,8 @@ def index(request, pg):
 #     return render(request, "etc/etc_detail.html", {'etcReviewList':etcReviewList, 'etcReviewItem':board, 'etcItemList':etcItemList, })
 
 
-# def write(request):
-#     return render(request, "etc/etc_write.html")
+def write(request):
+    return render(request, "etc/etc_write.html")
 
 # from django.utils import timezone
 # from django.shortcuts import redirect    

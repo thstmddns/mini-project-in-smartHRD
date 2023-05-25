@@ -22,7 +22,7 @@ app_name = 'edu'
 urlpatterns = [
     path("index/<int:pg>", views.index),
     path("detail/<int:edu_seq>", views.edu_detail),
-    # path("write", views.write),
+    path("write", views.write),
     # path("save", views.save),
     path("main",views.main, name='main'),
     path('edu/delete/<int:edu_seq>', views.delete),

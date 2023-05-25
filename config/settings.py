@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'res.apps.ResConfig',
     'edu',
     'member',
     'django.contrib.admin',
@@ -77,14 +78,13 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'xe',
-        'USER':'mini',
-        'PASSWORD': '1234',
-        'HOST':'localhost',
-        'port': '1521',
-    }
+      "default": {
+        "ENGINE":"django.db.backends.oracle",
+        "NAME":"XE",
+        "USER":"mini",
+        "PASSWORD":"1234",
+        "HOST":"localhost",
+        "PORT":1521}
 }
 
 

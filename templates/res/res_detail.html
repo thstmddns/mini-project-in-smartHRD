@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{ resInfo.res_name }}</h1>
+
+    <div class="container mt-5">
+        <table class="table">
+            <colgroup>
+                <col width="%"/>
+                <col width="12"/>
+                <col width="*"/>
+                <col width="8%"/>
+                <col width="8%"/>
+            </colgroup>
+            <thead class="table-secondary">
+            <tr>
+                <th>위치</th>
+                <th>전화번호</th>
+                <th>음식점 소개</th>
+                <th>평점</th>
+                <th>조회수</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{resInfo.res_locate}}</td>
+                    <td>{{resInfo.res_phone}}</td>
+                    <td>{{resInfo.res_content}}</td>
+                    <td>{{resInfo.res_score}}</td>
+                    <td>{{resInfo.res_hit}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container mt-5">
+        <table class="table">
+            <colgroup>
+                <col width="8%"/>
+                <col width="*"/>
+                <col width="12%"/>
+                <col width="12%"/>
+                <col width="8%"/>
+            </colgroup>
+            <thead class="table-secondary">
+            <tr>
+                <th>음식 메뉴</th>
+                <th>음식 소개</th>
+                <th>음식 사진</th>
+                <th>음식 가격</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for menuItem in menuList %}
+                <tr>
+                    <td>{{menuItem.res_item_title}}</td>
+                    <td>{{menuItem.res_item_content}}</td>
+                    <td>{{menuItem.res_item_pic}}</td>
+                    <td>{{menuItem.res_item_price}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container mt-5">
+        <table class="table">
+            <colgroup>
+                <col width="8%"/>
+                <col width="*"/>
+                <col width="12%"/>
+                <col width="12%"/>
+                <col width="8%"/>
+            </colgroup>
+            <thead class="table-secondary">
+            <tr>
+                <th>리뷰 작성자</th>
+                <th>리뷰 제목</th>
+                <th>리뷰 내용</th>
+                <th>리뷰 작성일</th>
+                <th>리뷰 별점</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for review in reviewList %}
+                <tr>
+                    <td>{{review.mem_id}}</td>
+                    <td>{{review.res_review_title}}</td>
+                    <td>{{review.res_review_content}}</td>
+                    <td>{{review.res_review_wdate}}</td>
+                    <td>{{review.res_review_rating}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+
+

@@ -21,6 +21,9 @@ from . import views
 app_name = 'res'
 
 urlpatterns = [
-    path('index/', views.res_index),
-    path('detail/<int:res_seq>/<int:mem_seq>', views.res_detail)
+    path('index/', views.res_index, name='index'),
+    path('detail/<int:res_seq>/', views.res_detail),
+    path('join/', views.res_join_form),
+    path('save/', views.res_join_save, name='join_save'),
+    path('main/', views.main, name='main'),
 ]

@@ -137,3 +137,6 @@ def write_save(request):
     cursor.execute(sql)
     connection.commit()
     return redirect('res:index')
+
+
+    # 

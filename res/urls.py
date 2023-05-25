@@ -16,11 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from . import views
+from django.conf.urls.static import static
+from django.conf import settings
+app_name = 'res'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('member/', include('member.urls')),
-    path('edu/', include('edu.urls')),
-    path('etc1/', include('etc1.urls')),
-    path('res/', include('res.urls')),
+    path('index/', views.res_index, name='index'),
+    path('detail/<int:res_seq>/', views.res_detail),
+    path('join/', views.res_join_form),
+    path('save/', views.res_join_save, name='join_save'),
+    path('main/', views.main, name='main'),
+    path('write/', views.write, name='write')
 ]
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

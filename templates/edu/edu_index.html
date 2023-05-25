@@ -12,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-        {% for eduItem in eduList %}
+        {% for eduItem in edu %}
         <tr>
             <td><a href="/edu/deatail/{{eduItem.edu_seq}}"></a>{{eduItem.edu_name}}</td>
             <td>{{mem_id}}</td>
@@ -39,12 +39,12 @@
 
 function goPage(pg)
 {
-location.href="/board/list2/"+pg;
+location.href="/edu/index/"+pg;
 }
 $(document).ready( () => {
 $("#btnWrite").click(() => {
 // 화살표 함수는 this 사용 못함
-$("#myform").prop("action", "/board/write");
+$("#myform").prop("action", "/edu/write");
 $("#myform").prop("method", "get");
 $("#myform").submit();
 });

@@ -33,8 +33,10 @@
                   <td colspan="5">{{eduItem.|edu_item_price}}</td>
                   
                 </tr>
-
+               
             </tbody>
+
+          
         </table>
     </div>
     
@@ -81,7 +83,7 @@
   }
 $(document).ready( () => {
   $("#btnReview").click(() => {
-    // 화살표 함수는 this 사용 못함
+    
     // $("#myform").prop("action", "/edu/write");
     $("#myform").prop("method", "post");
     $("#myform").submit();

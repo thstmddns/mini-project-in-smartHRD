@@ -22,7 +22,7 @@ def index(request, pg):
     cp = commonPage(totalCnt, pg, 10)
 
     sql = """select edu.edu_name, edu.edu_score, edu.edu_hit, 
-    edu.edu_wdate, mem.mem_id
+    edu.edu_wdate, mem.mem_id, num
     from member mem join edu
     on mem.mem_seq = edu.mem_seq """
 
@@ -34,8 +34,8 @@ def index(request, pg):
             select  A.mem_seq, A.edu_name, 
                     A.edu_score, A.edu_hit, 
                     A.edu_wdate, B.mem_id,
-                    row_number() over(order by A.mem_seq desc) num,
-                    ceil(row_number() over(order by A.mem_seq  desc)/10)-1 pg
+                    row_number() over(order by A.edu_wdate desc) num,
+                    ceil(row_number() over(order by A.edu_wdate  desc)/10)-1 pg
             from edu A 
             left outer join member B on A.mem_seq=B.mem_seq
             -- 검색 조건 필요할 경우에 여기에

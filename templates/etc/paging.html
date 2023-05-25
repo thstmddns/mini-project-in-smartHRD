@@ -10,9 +10,9 @@
 
         {% for pg in commonPage.page_range %}
             {% if pg == commonPage.curPage %}
-                <li class="page-item active"><a class="page-link text-dark" href="/board/list2/{{pg}}" style="background-color: rgb(166, 167, 165)" ;>{{pg|add:1}}</a></li>
+                <li class="page-item active"><a class="page-link text-dark" href="/edu/index/{{pg}}" style="background-color: rgb(166, 167, 165)" ;>{{pg|add:1}}</a></li>
             {% else %}
-                <li class="page-item"><a class="page-link text-dark" href="/board/list2/{{pg}}">{{pg|add:1}}</a></li>
+                <li class="page-item"><a class="page-link text-dark" href="/edu/index/{{pg}}">{{pg|add:1}}</a></li>
             
             {% endif %}
         {%endfor%}

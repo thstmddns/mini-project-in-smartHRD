@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .htitle {
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 90px;
+    }
+    .spantitle {
+        font-size: 15px;
+    }
+    #storedetail {
+        text-align: center;
+        justify-content: center;
+    }
+    .container.mt-5.storedetail{
+        display: flex;
+        position:relative;
+        left:300px;
+    }
+    .container.mt-3.storedetail{
+        margin-bottom: 20px;
+    }
+    .container.mt-5.storedetail > div > img{
+    position:relative;
+    left:200px;
+    }
+    .storeimg {
+        width:300px;
+        height: 300px;
+    }
+    .wrapper {
+        /* position:absolute;
+        width:300px;
+        height:300px;
+        overflow: hidden; */
+        margin-left:200px;
+        position:relative;
+        width:300px;
+        height:300px;
+        overflow: hidden;
+    }
+    .btn {
+        position: absolute;
+        left:110px;
+        top:275px;
+        }
+    .box {
+        transform:translateY(-300px);
+        transition:0.5s;
+    }
+
+</style>
+</head>
+<body>
+    <h1 class="htitle">{{ resInfo.res_name }} <span class="spantitle">({{resInfo.res_score}})</span></h1>
+
+    <div class="container mt-5 storedetail" >
+        <div class="container mt-5">
+            <h3>상세정보</h3>
+      
+            <div class="container mt-3 storedetail">위치 : 
+                <span>{{resInfo.res_locate}}</span> 
+            </div>
+            <div class="container mt-3 storedetail">전화번호 : 
+                <span>{{resInfo.res_phone}}</span> 
+            </div>
+            <div class="container mt-3 storedetail">음식점 소개 : 
+                <span>{{resInfo.res_content}}</span> 
+            </div>
+
+
+        </div>
+        <div class="wrapper">
+            <div class="box"></div>
+                {% for i in "x"|rjust:"3" %} 
+                <div class="detailitem">
+                    <img class='storeimg' src="/static/res/{{resInfo.res_name}}{{ forloop.counter}}.jpg" alt="">
+                </div>
+                {% endfor %} 
+                <div class="btn">
+                    {% for i in "x"|rjust:"3" %} 
+                    <button>{{ forloop.counter }}</button>
+                    {% endfor %} 
+                </div>
+            </div>
+        </div>
+</div>
+
+    <div class="container mt-5">
+        <table class="table">
+            <colgroup>
+                <col width="8%"/>
+                <col width="*"/>
+                <col width="12%"/>
+                <col width="12%"/>
+                <col width="8%"/>
+            </colgroup>
+            <thead class="table-secondary">
+            <tr>
+                <th>음식 메뉴</th>
+                <th>음식 소개</th>
+                <th>음식 사진</th>
+                <th>음식 가격</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for menuItem in menuList %}
+                <tr>
+                    <td>{{menuItem.res_item_title}}</td>
+                    <td>{{menuItem.res_item_content}}</td>
+                    <td>{{menuItem.res_item_pic}}</td>
+                    <td>{{menuItem.res_item_price}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container mt-5">
+        <table class="table">
+            <colgroup>
+                <col width="8%"/>
+                <col width="*"/>
+                <col width="12%"/>
+                <col width="12%"/>
+                <col width="8%"/>
+            </colgroup>
+            <thead class="table-secondary">
+            <tr>
+                <th>리뷰 작성자</th>
+                <th>리뷰 제목</th>
+                <th>리뷰 내용</th>
+                <th>리뷰 작성일</th>
+                <th>리뷰 별점</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for review in reviewList %}
+                <tr>
+                    <td>{{review.mem_id}}</td>
+                    <td>{{review.res_review_title}}</td>
+                    <td>{{review.res_review_content}}</td>
+                    <td>{{review.res_review_wdate}}</td>
+                    <td>{{review.res_review_rating}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const btn1 = document.querySelectorAll('button')[0];
+        const btn2 = document.querySelectorAll('button')[1];
+        const btn3 = document.querySelectorAll('button')[2];
+        const box = document.querySelector('.box');
+            
+        btn2.addEventListener('click', ()=>{
+            box.style.transform = 'translateY(-600px)';
+        })
+    
+        btn3.addEventListener('click', ()=> {
+            box.style.transform = 'translateY(-300px)';
+        })   
+    
+        btn1.addEventListener('click', ()=> {
+            box.style.transform = 'translateY(0px)';
+        }) 
+    </script>
+</body>
+</html>
+
+
+

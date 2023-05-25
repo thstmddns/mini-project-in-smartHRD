@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button  onclick="location.href='/res/write/'">글쓰기</button>
+
+    <div class="container mt-5">
+        <table class="table">
+            <colgroup>
+                <col width="8%"/>
+                <col width="*"/>
+                <col width="12%"/>
+                <col width="12%"/>
+                <col width="8%"/>
+            </colgroup>
+            <thead class="table-secondary">
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+                <th>조회수</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for resItem in res_list %}
+                <tr>
+                    <td>{{resItem.res_seq}}</td>
+                    <td><a href="/res/detail/{{resItem.res_seq}}/">{{resItem.res_name}}</a></td>
+                    <td>{{resItem.mem_name}}</td>
+                    <td>{{resItem.res_wdate}}</td>
+                    <td>{{resItem.res_hit}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+        

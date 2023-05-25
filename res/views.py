@@ -98,14 +98,16 @@ def res_join_save(request):
     age = request.POST.get('age')
     name = request.POST.get('name')
     cursor = connection.cursor()
-    print(mem_id, password, age, name)
+    membertype = request.POST.get('membertype')
+
+    print(membertype)
     sql = f"""
     insert into member (
     mem_seq, mem_id, mem_password, mem_google_id, mem_naver_id, mem_type, mem_age, mem_name, mem_wdate, mem_update)
     values(mem_seq.NEXTVAL, '{mem_id}', '{password}', 'N', 'N', 1, '{age}', '{name}', sysdate, sysdate)
     """  
-    cursor.execute(sql)
-    connection.commit()  
+    # cursor.execute(sql)
+    # connection.commit()  
     return redirect('res:main')
 
 

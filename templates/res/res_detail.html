@@ -94,13 +94,13 @@
 
     <div class="container mt-5">
         <table class="table">
-            <colgroup>
+            <!-- <colgroup>
                 <col width="8%"/>
                 <col width="*"/>
                 <col width="12%"/>
                 <col width="12%"/>
                 <col width="8%"/>
-            </colgroup>
+            </colgroup> -->
             <thead class="table-secondary">
             <tr>
                 <th>음식 메뉴</th>
@@ -122,19 +122,38 @@
         </table>
     </div>
 
+
+
+
+    <div class="container p-5 my-5 border">
+        <h4>리뷰 <span></span></h4>
+                <select name="score">
+                    <option value="1">1점</option>
+                    <option value="2">2점</option>
+                    <option value="3">3점</option>
+                    <option value="4">4점</option>
+                    <option value="5">5점</option>
+                </select></br>
+                <textarea class="form-control" rows="5" 
+                id="edu_review_content" name="review"></textarea>
+        <input type="submit" class="btnReview" value="리뷰 등록">
+    
+
+    </div>
+
+
     <div class="container mt-5">
         <table class="table">
-            <colgroup>
+            <!-- <colgroup>
                 <col width="8%"/>
                 <col width="*"/>
                 <col width="12%"/>
                 <col width="12%"/>
                 <col width="8%"/>
-            </colgroup>
+            </colgroup> -->
             <thead class="table-secondary">
             <tr>
                 <th>리뷰 작성자</th>
-                <th>리뷰 제목</th>
                 <th>리뷰 내용</th>
                 <th>리뷰 작성일</th>
                 <th>리뷰 별점</th>
@@ -144,7 +163,6 @@
                 {% for review in reviewList %}
                 <tr>
                     <td>{{review.mem_id}}</td>
-                    <td>{{review.res_review_title}}</td>
                     <td>{{review.res_review_content}}</td>
                     <td>{{review.res_review_wdate}}</td>
                     <td>{{review.res_review_rating}}</td>
@@ -161,7 +179,7 @@
         const box = document.querySelector('.box');
             
         btn2.addEventListener('click', ()=>{
-            box.style.transform = 'translateY(-600px)';
+            box.style.transform = 'translateY(-00px)';
         })
     
         btn3.addEventListener('click', ()=> {

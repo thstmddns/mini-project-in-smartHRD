@@ -49,6 +49,3 @@ class commonPage:
             self.pre_page = self.curPage 
 
         self.page_range = range(self.start, self.end)
-
-
-

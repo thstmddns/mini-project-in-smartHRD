@@ -27,7 +27,8 @@ urlpatterns = [
     path('join/', views.res_join_form),
     path('save/', views.res_join_save, name='join_save'),
     path('main/', views.main, name='main'),
-    path('write/', views.write, name='write')
+    path('write/', views.write, name='write'),
+    path('write_save/', views.write_save, name='write_save'),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

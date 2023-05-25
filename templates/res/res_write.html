@@ -5,59 +5,72 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    table.table2{
+            border-collapse: separate;
+            border-spacing: 1px;
+            text-align: left;
+            line-height: 1.5;
+            border-top: 1px solid #ccc;
+            margin : 20px 10px;
+    }
+    table.table2 tr {
+            width: 50px;
+            padding: 10px;
+            font-weight: bold;
+            vertical-align: top;
+            border-bottom: 1px solid #ccc;
+    }
+    table.table2 td {
+             width: 100px;
+             padding: 10px;
+             vertical-align: top;
+             border-bottom: 1px solid #ccc;
+    }
+
+</style>
 </head>
 <body>
-    <div class = "container mt-5">
-          
-      <div class="mb-3 mt-3">
-        <label for="title" class="form-label">학원명:</label>
-        <input type="text" class="form-control" id="title" placeholder="name" name="title" required>
-      </div>
-      <div class="mb-3 mt-3">
-        <label for="writer" class="form-label">작성자:</label>
-        {{mem_id}}
-      </div>
 
-      <div class="mb-3 mt-3">
-        <label for="title" class="form-label">과목 소개:</label>
-        <input type="text" class="form-control" id="title" placeholder="subject" name="title" required>
-      </div>
+    <form method = "post" action = "{% url 'res:write_save' %}">
+      {% csrf_token %}
+      <table  style="padding-top:50px;" align = center width=800 border=0 cellpadding=2 >
+              <tr>
+              <td height=20 style='text-align:center; color:black;
+              background-color: #ccc; font-weight:1000;' >게시글 작성</td>
+              </tr>
+              <tr>
+              <td style ='background-color:white'>
+                <table class = "table2">
+                  <tr>
+                    <td>식당명</td>
+                    <td><input type = text name = title size=20> </td>
+                  </tr>
 
-      <div class="mb-3 mt-3">
-        <label for="title" class="form-label">가격:</label>
-        <input type="text" class="form-control" id="title" placeholder="price" name="title" required>
-      </div>
-      
-      <div class="mb-3 mt-3">
-        <textarea class="form-control" rows="10" id="contents" name="contents"></textarea></br>
-        <button>이미지 첨부</button>
-        <button type="button" class="btn btn-primary bg-success btn-outline-success text-bg-dark opacity-50 " id="btnWrite">저장</button>
-      </div>
+                  <tr>
+                    <td>지역</td>
+                    <td><input type = text name = address size=60></td>
+                  </tr>
 
-    </div>
+
+                  <tr>
+                    <td>연락처</td>
+                    <td><input type = text name = phone size=60></td>
+                  </tr>
+
+                  <tr>
+                    <td>내용</td>
+                    <td><textarea name = content cols=85 rows=15></textarea></td>
+                  </tr>
+                </table>
+
+
+                      <input type = "submit" value="작성">
+
+              </td>
+              </tr>
+      </table>
+      </form>
 </body>
 </html>
     
-
-    
-  
-
-<!-- <script>
-
-  function goPage(pg)
-  {
-    // 자바스크립트로 페이지 이동 - get방식으로 간단히 이동할 때
-    location.href="/edu/index/"+pg;
-
-
-    // 이게 아닐 경우에는 form 태그 참조를 가져와서 사용한다
-  }
-$(document).ready( () => {
-  $("#btnWrite").click(() => {
-    // 화살표 함수는 this 사용 못함
-    $("#myform").prop("action", "/edu/save");
-    $("#myform").prop("method", "post");
-    $("#myform").submit();
-  });
-})
-</script> -->

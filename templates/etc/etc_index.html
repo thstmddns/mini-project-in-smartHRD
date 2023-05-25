@@ -15,7 +15,7 @@
     <tbody>
         {% for etcItem in Edu %}
         <tr>
-            <td>{{e}}</td>
+            <td>{{etcItem.num}}</td>
             <td><a href="/etc/detail/{{etcItem.etc_seq}}"></a>{{etcItem.etc_name}}</td>
             <td>{{mem_id}}</td>
             <td>{{etcItem.etc_score}}</td>

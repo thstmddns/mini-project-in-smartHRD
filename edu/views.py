@@ -21,11 +21,6 @@ def index(request, pg):
 
     cp = commonPage(totalCnt, pg, 10)
 
-    sql = """select edu.edu_name, edu.edu_score, edu.edu_hit, 
-    edu.edu_wdate, mem.mem_id, num
-    from member mem join edu
-    on mem.mem_seq = edu.mem_seq """
-
     sql = f"""
         select A.mem_seq, A.edu_name, A.edu_score, A.edu_hit,
             to_char(A.edu_wdate, 'yyyy-mm-dd') edu_wdate, A.mem_id, num

@@ -1,56 +1,60 @@
 {% extends 'base.html' %}
-{% block content %}
-
-
-<table class="etcList">
-    <tr>
-        <th>번호</th>
-        <th>상호명</th>
-        <th>작성자</th>
-        <th>평점</th>
-        <th>작성일</th>
-        <th>조회수</th>
-      </tr>
-    </thead>
-    <tbody>
-        {% for etcItem in Edu %}
-        <tr>
-            <td>{{etcItem.num}}</td>
-            <td><a href="/etc/detail/{{etcItem.etc_seq}}"></a>{{etcItem.etc_name}}</td>
-            <td>{{mem_id}}</td>
-            <td>{{etcItem.etc_score}}</td>
-            <td>{{etcItem.etc_wdate}}</td>
-            <td>{{etcItem.etc_hit}}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-
-</table>
-
-{% include "./paging.html" %}
-
-<div class = "container mt-5" style = "text-align: right">    
-    <div class="btn-group">
-        <button type="button" class="btn btn-primary bg-success btn-outline-success text-bg-dark opacity-50 " id="btnWrite">글쓰기</button>
-        
+{% block contents %}    
+    <div class="container mt-3">
+        <table class="eduList table table-striped">
+            <colgroup>
+                <col width="8%"/>
+                <col width="35%"/>
+                <col width="12%"/>
+                <col width="8%"/>
+                <col width="*%"/>
+                <col width="8%"/>
+            </colgroup>
+            <thead>
+                <tr style="text-align: center;">
+                    <th>번호</th>
+                    <th>상호명</th>
+                    <th>작성자</th>
+                    <th>평점</th>
+                    <th>작성일</th>
+                    <th>조회수</th>
+                </tr>
+            </thead>
+            <tbody>
+                <td colspan="6" style="height: 
+                500px; font-size: 3em; text-align: center; line-height: 450px; color: rgb(177, 174, 174);">하나씩 채워가는 중</td>
+            </tbody>
+        </table>
     </div>
-</div>
+    
+    {% include "./paging.html" %}
+
+    <div class = "container mt-5" style = "text-align: right">    
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary bg-secondary btn-outline-dark text-bg-dark " id="btnWrite">글쓰기</button>
+            
+        </div>
+    </div>
 
 
-<script>
+    <script>
 
-function goPage(pg)
-{
-location.href="/etc/index/"+pg;
-}
-$(document).ready( () => {
-$("#btnWrite").click(() => {
-// 화살표 함수는 this 사용 못함
-$("#myform").prop("action", "/etc/write");
-$("#myform").prop("method", "get");
-$("#myform").submit();
-});
-})
-</script>
+        function goPage(pg)
+        {
+        
+          location.href="/etc/index/"+pg;
+      
+      
+         
+        }
+      $(document).ready( () => {
+        $("#btnWrite").click(() => {
+          // 화살표 함수는 this 사용 못함
+          $("#myform").prop("action", "/etc/write");
+          $("#myform").prop("method", "get");
+          $("#myform").submit();
+        });
+      })
+      </script>
 
 {% endblock %}

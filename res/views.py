@@ -11,6 +11,7 @@ def res_index(request):
     select res.res_seq, res.mem_seq, res.res_name, res.res_hit, res.res_wdate, mem.mem_name
     from restaurant res join member mem
     on res.mem_seq = mem.mem_seq
+    order by res.res_seq desc
     """
 
     cursor.execute(sql)
@@ -68,7 +69,6 @@ def res_detail(request, res_seq):
     """
     cursor.execute(sql)
     reviewList = dictfetchall(cursor)
-    print(reviewList)
     return render(request, 'res/res_detail.html',  
                   {'resInfo':resInfo, "menuList":menuList, 'reviewList':reviewList})
 
@@ -83,7 +83,6 @@ def res_join_save(request):
     age = request.POST.get('age')
     name = request.POST.get('name')
     cursor = connection.cursor()
-    print(mem_id, password, membertype, age, name)
     sql = f"""
     insert into member values(mem_req.NEXTVAL, '{mem_id}', '{password}', 'N', 'N', 1, {age}, '윤', sysdate, sysdate)
     """
@@ -94,3 +93,6 @@ def res_join_save(request):
 
 def main(request):
     return render(request, 'res/res_main.html')
+
+def write(request):
+    return render(request, 'res/res_write.html')

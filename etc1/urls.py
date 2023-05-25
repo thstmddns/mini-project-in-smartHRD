@@ -18,12 +18,13 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 
-app_name = 'edu'
+app_name = 'etc'
 urlpatterns = [
-    path("index/<int:pg>", views.index),
-    # path("detail/<int:pg>", views.detail),
-    # path("write", views.write),
-    # path("save", views.save),
+    path("index", views.index),
+    path("detail/<int:etc_seq>", views.detail),
+    path("write", views.write),
+    path("save", views.save),
     path("main",views.main),
-    path('edu/delete/<int:edu_seq>', views.delete),
+    path('etc/delete/<int:etc_seq>', views.delete),
+
 ]

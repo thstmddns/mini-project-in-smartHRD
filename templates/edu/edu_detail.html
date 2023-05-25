@@ -9,11 +9,9 @@
                 <tr>
                     <h1 style="text-align: center; margin-top: 50px;">{{eduInfo.edu_name}}</h1>
                 </tr>
-                <tr>
-                  <th>작성자</th>
-                  <td>{{eduReList.mem_id}}</td>
+                <tr style="justify-content: center;">
                   <th>작성일</th>
-                  <td>{{eduInfo.edu_item_wdate}}</td>
+                  <td>{{eduInfo.edu_wdate}}</td>
                   <th>조회수</th>
                   <td>{{eduInfo.edu_hit}}</td></br>
                   <th>위치</th>
@@ -36,37 +34,44 @@
     </div>
     
     
-    <table>
-          {% for review in eduReList %}
-            <tr>
-            <th>작성자</th>
-            <td>{{review.mem_id}}</td>
+    <div class="container p-5 mt-5 border">
+        <div class="review" style="margin-left: 200px;">
+          <td><input type="text" class="edu_review_title" placeholder="한줄평" style="width: 715px;margin-right: 18px;"></td>
+          <th>별점</th>
+          <td>
+            <select name="score">
+                <option value="1">1점</option>
+                <option value="2">2점</option>
+                <option value="3">3점</option>
+                <option value="4">4점</option>
+                <option value="5">5점</option>
+            </select></br>
+          </td>
+            <br>
+          <tr>
+              <textarea class="form-control" id="edu_review_content" name="review" style="border-style: solid; border-color: dimgray;"></textarea>
+              <br>
+              <button type="button" class="btn btn-sm bg-secondary btn-outline-dark text-bg-dark" id="btnList" style="float: right;">등록</button>
             </tr>
-            <tr>
-            <th>작성일</th>
-            <td>{{review.edu_review_wdate}}</td>
-            </tr>
-            <tr>
-            <td colspan="5">{{review.edu_review_content}}</td>
-            </tr>
-          {% endfor %}
-    </table>
-            <!-- 리뷰 페이징: 자바스크립트로 다음 페이지가 보이게?(class name에 붙여서) -->
-    
-    <div class="container p-5 my-5 border">
+         </div>
         
-        <input type="text" class="edu_review_title" placeholder="한줄평">
-        <th>별점</th>
-            <td>
-                <select name="score">
-                    <option value="1">1점</option>
-                    <option value="2">2점</option>
-                    <option value="3">3점</option>
-                    <option value="4">4점</option>
-                    <option value="5">5점</option>
-                </select></br>
-            </td><textarea class="form-control" rows="5" id="edu_review_content" name="review"></textarea>
-        <input type="submit" class="btnReview" value="리뷰 등록">
+          <div class="container p-2 mt-5 border" >
+            <table class="eReview"style="justify-content: center;">
+                  {% for review in eduReList %}
+                    <th style="font-size: 1em;"><후기></th>
+                    <tr>
+                    <th>작성자</th>
+                    <td>{{review.mem_id}}</td>
+                    <th>작성일</th>
+                    <td>{{review.edu_review_wdate}}</td>
+                    <th>별점</th>
+                    <td>{{review.edu_review_rating}}</td>
+                    <td colspan="5">{{review.edu_review_content}}</td>
+                    </tr>
+                  {% endfor %}
+            </table>
+                  <!-- 리뷰 페이징: 자바스크립트로 다음 페이지가 보이게?(class name에 붙여서) -->
+          </div>
     
 
     </div>

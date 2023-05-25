@@ -32,9 +32,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'res.apps.ResConfig',
+    # 'res.apps.ResConfig',
     'edu',
     'member',
+    "mathfilters",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

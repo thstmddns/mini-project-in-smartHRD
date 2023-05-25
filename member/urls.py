@@ -18,13 +18,12 @@ from django.contrib import admin
 from django.urls import path
 from.import views
 
-# app_name='member'
-# urlpatterns = [
-#     path('login/', views.login, name='login'),
-#     path('logout/', views.logout, name='logout'),
-#     path('signup/', views.signup, name='signup'),
-#     path('delete/', views.delete, name='delete'),
-#     path('update/', views.update, name='update'),
-#     path('password/', views.change_password, name='change_password'),
-#     path('<username>/', views.profile, name = 'profile'),
-# ]
+app_name="member"
+urlpatterns = [
+    path("write/", views.write), #회원가입폼으로 이동
+    path("save/", views.save),  #회원가입
+    path("idcheck/", views.idcheck), #아이디중복체크
+    path("logon/", views.logon), #페이지이동용
+    path("logon_proc/", views.logon_proc),#로그온처리
+    path("logout_proc/", views.logout_proc),#로그아웃처리
+]

@@ -25,5 +25,6 @@ urlpatterns = [
     path("write", views.write),
     # path("save", views.save),
     path("main",views.main),
-    path('edu/delete/<int:edu_seq>', views.delete),
+    # path('edu/delete/<int:edu_seq>', views.delete),
+    path("login", views.login),
 ]

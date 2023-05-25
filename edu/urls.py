@@ -21,7 +21,7 @@ from . import views
 app_name = 'edu'
 urlpatterns = [
     path("index/<int:pg>", views.index),
-    # path("detail/<int:pg>", views.detail),
+    path("detail/<int:edu_seq>", views.edu_detail),
     # path("write", views.write),
     # path("save", views.save),
     path("main",views.main),

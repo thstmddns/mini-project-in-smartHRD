@@ -82,8 +82,8 @@ def edu_detail(request, edu_seq):
                   {'eduInfo':eduInfo, "eduList":eduList, 'eduReList':eduReList})
 
 
-# def write(request):
-#     return render(request, "edu/edu_write.html")
+def write(request):
+    return render(request, "edu/edu_write.html")
 
 # from django.utils import timezone
 from django.shortcuts import redirect    

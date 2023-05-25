@@ -27,4 +27,6 @@ urlpatterns = [
     path("main",views.main),
     # path('edu/delete/<int:edu_seq>', views.delete),
     path("login", views.login),
+  
+
 ]

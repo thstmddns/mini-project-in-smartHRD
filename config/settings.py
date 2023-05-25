@@ -32,7 +32,12 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+<<<<<<< HEAD
+    'res.apps.ResConfig',
+    'mathfilters',
+=======
     # 'res.apps.ResConfig',
+>>>>>>> 20cede71df69d9094e21089da39fe31e2f446714
     'edu',
     'member',
     "mathfilters",

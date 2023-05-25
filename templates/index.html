@@ -7,6 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    
+    메인 
+    {%if request.session.userid == None %}
+        <a href="/member/logon">로그온</a>
+    {%else%}
+        {{request.session.userid}}
+        {{request.session.username}}
+        {{request.session.email}}
+        <a href="/member/logout_proc">로그아웃</a>
+    {%endif%}
 </body>
 </html>

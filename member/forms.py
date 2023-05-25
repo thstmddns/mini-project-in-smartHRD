@@ -1,40 +1,14 @@
-from django import forms
-from django.contrib.auth.forms import UserChangeForm, UserCreationForm
-from django.contrib.auth import get_user_model
+from django import forms 
 
-
-class CreateMemberForm(UserCreationForm):
-    CHOICES=[('1', '일반 회원'),('2','사장님 회원'),('3',)]
-    
-    isgeneral = forms.ChoiceField(
-        label = '회원유형',
-        choices = CHOICES,
-        widget = forms.RadioSelect,
-        required=True
-    )
-    
-    username = forms.CharField(
-        label='이름',
-        widget=forms.TextInput(
-            attrs={
-            'class': 'my-username form-control',
-            'placeholder': '사용자 이름을 입력하세요',
-            'style' : 'width:300px;'
-            },
-	    )   
-	)
-    
-    birthday = forms.DateField(
-        label='생년월일',
-        widget=forms.NumberInput(
-            attrs={
-            'type':'date',
-            'class': 'my-birthday form-control',
-            'placeholder': '생년월일을 입력해주세요',
-            'style' : 'width:300px;'
-            }
-        ),
-	)
-    class Meta(UserCreationForm.Meta):
-        model = get_user_model() #user
-        fields = UserCreationForm.Meta.fields + ('isgeneral', 'birthday')
+#모델클래스를 import 해야 한다 
+#from 폴더명.파일명 import 클래스명 
+from member.models import Member
+class MemberForm(forms.ModelForm):
+    class Meta:
+        model = Member 
+        fields = ['mem_id', 'mem_name', 'mem_password', 'mem_type', 'mem_age', 'mem_name']
+        labels = {'mem_id':'아이디', 
+                  'mem_password':'패스워드',
+                  'mem_type':'회원유형',
+                  'mem_age':'나이',
+                  'mem_name':'이름'}

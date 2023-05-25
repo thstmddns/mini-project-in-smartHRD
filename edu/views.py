@@ -103,7 +103,10 @@ from django.shortcuts import redirect
 def main(request):
     return render(request, "edu/main.html")
 
-def delete(request, edu_item_seq):
-    content = get_object(request, edu_item_seq)
-    content.delete()
-    return redirect("edu/index")
+# def delete(request, edu_item_seq):
+#     content = get_object(request, edu_item_seq)
+#     content.delete()
+#     return redirect("edu/index")
+
+def login(request):
+    return render(request, "edu/login.html")

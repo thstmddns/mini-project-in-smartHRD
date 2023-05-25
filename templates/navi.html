@@ -24,7 +24,7 @@
 =======
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">성우</a>
+    <a class="navbar-brand" href="/edu/main">성우</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -33,15 +33,15 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">메뉴</a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">처음으로</a>
+            <a class="dropdown-item" href="/edu/main">처음으로</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">맛보다</a>
+            <a class="dropdown-item" href="/res/index/0">맛보다</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">꾸미다</a>
+            <a class="dropdown-item" href="/beauty/index/0">꾸미다</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">배우다</a>
+            <a class="dropdown-item" href="/edu/index/0">배우다</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">기타</a>
+            <a class="dropdown-item" href="/etc1/index/0">기타</a>
           </div>
         </li>
       </ul>
@@ -50,10 +50,21 @@
         name="search">
       </form>
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">✓</button>
-        <button type="button" class="btn btn-outline-secondary" style="margin-right: 10px; margin-left: 10px; ">접속</button>
+        <button type="button" class="btn btn-outline-secondary" style="margin-right: 10px; margin-left: 10px;" id="login">접속</button>
         <button type="button" class="btn btn-outline-secondary">가입</button>
       
     </div>
 >>>>>>> 20cede71df69d9094e21089da39fe31e2f446714
   </div>
 </nav>
+
+<script>
+  $(document).ready( () => {
+  $("#login").click(() => {
+    // 화살표 함수는 this 사용 못함
+    $("#myform").prop("action", "/login");
+    $("#myform").prop("method", "post");
+    $("#myform").submit();
+  });
+})
+</script>
